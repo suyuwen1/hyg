@@ -42,15 +42,20 @@ h5{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-animation: hue 20s infinite linear;
+    /*background-clip: text;
+    text-fill-color: transparent;*/
+    animation: hue 20s infinite linear;
 }
 
-@-webkit-keyframes hue {
+@keyframes hue {
   from {
     -webkit-filter: hue-rotate(0deg);
+    filter: hue-rotate(0deg);
   }
 
   to {
     -webkit-filter: hue-rotate(-360deg);
+    filter: hue-rotate(-360deg);
   }
 }
 
