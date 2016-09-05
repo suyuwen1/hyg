@@ -1,9 +1,46 @@
-*{
+*, :before, :after{
     padding: 0;
     margin: 0;
-    border: none;
-    outline: none;
+    position: relative;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
+}
+
+body{
+    font-family: "Microsoft Yahei","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    overflow-x: hidden;
+}
+
+#main{
+    width: 100%;
+}
+
+h1{
+    font-size: 44px;
+    font-weight: 100;
+}
+
+.list .list_title{
+    padding: 150px 0px;
+    text-align: center;
+}
+
+.list_title_h1{
+    color: #f35626;
+    background-image: -webkit-linear-gradient(92deg,#f35626,#feab3a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: hue 20s infinite linear;
+}
+
+@-webkit-keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+
+  to {
+    -webkit-filter: hue-rotate(-360deg);
+  }
 }
