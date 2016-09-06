@@ -11,6 +11,10 @@ body{
     font-family: "Microsoft Yahei","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 14px;
     overflow-x: hidden;
+    background-image: url('../imgs/jd21/bj.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 #main{
@@ -21,13 +25,17 @@ h1{
     font-size: 44px;
     font-weight: 100;
 }
+h2{
+    font-size: 14px;
+    font-weight: 100;
+}
 h5{
     font-size: 14px;
     font-weight: 100;
 }
 
 .list .list_title{
-    padding: 60px 0px;
+    padding: 50px 0px;
     text-align: center;
 }
 
@@ -42,9 +50,13 @@ h5{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-animation: hue 20s infinite linear;
-    /*background-clip: text;
-    text-fill-color: transparent;*/
-    animation: hue 20s infinite linear;
+    background-clip: text;
+    text-fill-color: transparent;
+    animation: hue 10s infinite linear;
+}
+.list_title_h2{
+    color: #f35626;
+    -webkit-animation-iteration-count: infinite;
 }
 
 @keyframes hue {
@@ -72,7 +84,7 @@ h5{
 }
 .buy{
     text-align: center;
-    padding: 20px 0 30px 0;
+    padding: 10px 0;
 }
 .buy_a{
     padding: 8px 0;
@@ -80,16 +92,46 @@ h5{
     background-color: #f35626;
     text-decoration: none;
     display: block;
-    width: 100px;
+    width: 120px;
     margin: 0 auto;
     font-size: 16px;
 }
 
 .list2{
     text-align: center;
+    display: none;
 }
 
 .list2 img{
     width: 100%;
     max-width: 790px;
+}
+
+@media (max-width:420px){
+h1{
+    font-size: 30px;
+    font-weight: 100;
+}
+h5{
+    font-size: 16px;
+    font-weight: 100;
+}
+
+.list .list_title{
+    padding: 30px 0px;
+    text-align: center;
+}
+.buy{
+    padding: 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.buy_a{
+    width: 100%;
+    padding: 15px 0;
+}
+.list .list_title2{
+    padding: 10px 5px 66px 5px;
+}
 }
