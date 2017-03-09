@@ -84,24 +84,28 @@
         };
         //获取URL参数值
         var cp = getQueryString('cp');
+
+        function weixin(){
+            //判断是不是微信
+            var explorer =navigator.userAgent;
+            if(explorer.match(/MicroMessenger/i)){//如果是微信
+                document.getElementById("ts").style.display = 'block';
+                document.getElementById("cpimg").style.display = 'block';
+                document.getElementById("cpimg1").innerHTML='<img src="'+cps[cp][0]+'">';
+            }else{//如果不是微信，直接跳转
+                window.location = cps[cp][1];
+            }
+        }
         
     </script>
 </head>
-<body>
+<body onload="weixin()">
     <div id="ts" style="display: none"></div>
     <div id="cpimg" style="display: none">
         <div id="cpimg1"></div>
     </div>
-    <script>
-        //判断是不是微信
-        var explorer =navigator.userAgent;
-        if(explorer.match(/MicroMessenger/i)){//如果是微信
-            document.getElementById("ts").style.display = 'block';
-            document.getElementById("cpimg").style.display = 'block';
-            document.getElementById("cpimg1").innerHTML='<img src="'+cps[cp][0]+'">';
-        }else{//如果不是微信，直接跳转
-            window.location = cps[cp][1];
-        }
-    </script>
+    <div style="display: none"><!--统计代码-->
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_5674038'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s9.cnzz.com/stat.php%3Fid%3D5674038' type='text/javascript'%3E%3C/script%3E"));</script>
+    </div>
 </body>
 </html>
