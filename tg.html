@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>惠易购数码专营店</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        img{
+            vertical-align: middle;
+        }
+
+        body{
+            background-color: #F5F5F5;
+        }
+
+        #ts{
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            padding-top: 30%;
+            background-image: url('imgs/ts.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        #cpimg{
+            text-align: center;
+            width: 100%;
+            padding-top: 30%;
+            padding-bottom: 20px;
+        }
+        #cpimg1{
+            margin: 20px 24px;
+            border-radius: 6px;
+            overflow: hidden;
+            background-color: #fff;
+        }
+        #cpimg img{
+            width: 100%;
+        }
+    </style>
+    <script>
+        
+        //获取URL参数函数
+        function getQueryString(name) { 
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
+        //产品图片
+        var cps = {
+            "Z6":["imgs/Z6.jpg","https://detail.tmall.com/item.htm?id=534957425671"],
+            "Z2":["imgs/Z2.jpg","https://detail.tmall.com/item.htm?id=544589891298"],
+            "H1":["imgs/H1.jpg","https://detail.tmall.com/item.htm?id=544128261308"],
+            "H651":["imgs/H651.jpg","https://detail.tmall.com/item.htm?id=544905873130"],
+            "F830":["imgs/F830.jpg","https://detail.tmall.com/item.htm?id=544307390309"],
+            "F109":["imgs/F109.jpg","https://detail.tmall.com/item.htm?id=537984691072"],
+            "F107":["imgs/F107.jpg","https://detail.tmall.com/item.htm?id=543479182144"],
+            "MP3-102":["imgs/MP3-102.jpg","https://detail.tmall.com/item.htm?id=541466117370"],
+            "F105":["imgs/F105.jpg","https://detail.tmall.com/item.htm?id=537878118922"],
+            "JD51":["imgs/JD51.jpg","https://detail.tmall.com/item.htm?id=541602246271"],
+            "JD21":["imgs/JD21.jpg","https://detail.tmall.com/item.htm?id=537774697992"],
+            "JD31":["imgs/JD31.jpg","https://detail.tmall.com/item.htm?id=539050492976"],
+            "S30":["imgs/S30.jpg","https://detail.tmall.com/item.htm?id=524105924511"],
+            "HD816-2T":["imgs/HD816-2T.jpg","https://detail.tmall.com/item.htm?id=524578140845"],
+            "A6":["imgs/A6.jpg","https://detail.tmall.com/item.htm?id=541170522252"],
+            "R6611":["imgs/R6611.jpg","https://detail.tmall.com/item.htm?id=38452723666"],
+            "PB726S":["imgs/PB726S.jpg","https://detail.tmall.com/item.htm?id=520246243210"],
+            "U360":["imgs/U360.jpg","https://detail.tmall.com/item.htm?id=533256802617"],
+            "R6620":["imgs/R6620.jpg","https://detail.tmall.com/item.htm?id=540723758695"],
+            "S01":["imgs/S01.jpg","https://detail.tmall.com/item.htm?id=533634338899"],
+            "R5511":["imgs/R5511.jpg","https://detail.tmall.com/item.htm?id=19126738614"],
+            "R6601":["imgs/R6601.jpg","https://detail.tmall.com/item.htm?id=520962282423"]
+        };
+        //获取URL参数值
+        var cp = getQueryString('cp');
+        
+    </script>
+</head>
+<body>
+    <div id="ts" style="display: none"></div>
+    <div id="cpimg" style="display: none">
+        <div id="cpimg1"></div>
+    </div>
+    <script>
+        //判断是不是微信
+        var explorer =navigator.userAgent;
+        if(explorer.match(/MicroMessenger/i)){//如果是微信
+            document.getElementById("ts").style.display = 'block';
+            document.getElementById("cpimg").style.display = 'block';
+            document.getElementById("cpimg1").innerHTML='<img src="'+cps[cp][0]+'">';
+        }else{//如果不是微信，直接跳转
+            window.location = cps[cp][1];
+        }
+    </script>
+</body>
+</html>
