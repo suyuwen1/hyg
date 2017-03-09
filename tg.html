@@ -11,12 +11,18 @@
             padding: 0;
         }
 
+        html{
+            -webkit-text-size-adjust:none;
+        }
+
         img{
             vertical-align: middle;
         }
 
         body{
             background-color: #F5F5F5;
+            font-family: Microsoft YaHei,"\5fae\8f6f\96c5\9ed1",Helvetica Neue,Tahoma,Arial,STXihei,"\534e\6587\7ec6\9ed1",Heiti,"\9ed1\4f53",SimSun,"\5b8b\4f53",sans-serif;
+            font-size: 12px/1.5;
         }
 
         #ts{
@@ -49,6 +55,25 @@
         #cpimg img{
             width: 100%;
         }
+
+        #cpimg1-content{
+            padding: 10px 20px;
+            font-size: 14px;
+            line-height: 21px;
+            text-align: justify;
+            color: #000;
+        }
+        #cpimg1-price{
+            font-size: 24px;
+            line-height: 24px;
+            color: #DD2727;
+            text-align: left;
+            padding: 0 20px 20px 20px;
+        }
+        #cpimg1-price span{
+            font-size: 14px;
+            padding-right: 6px;
+        }
     </style>
     <script>
         
@@ -59,29 +84,29 @@
             if (r != null) return unescape(r[2]); return null;
         }
         //产品图片
-        var cps = {
-            "Z6":["imgs/Z6.jpg","https://detail.tmall.com/item.htm?id=534957425671"],
-            "Z2":["imgs/Z2.jpg","https://detail.tmall.com/item.htm?id=544589891298"],
-            "H1":["imgs/H1.jpg","https://detail.tmall.com/item.htm?id=544128261308"],
-            "H651":["imgs/H651.jpg","https://detail.tmall.com/item.htm?id=544905873130"],
-            "F830":["imgs/F830.jpg","https://detail.tmall.com/item.htm?id=544307390309"],
-            "F109":["imgs/F109.jpg","https://detail.tmall.com/item.htm?id=537984691072"],
-            "F107":["imgs/F107.jpg","https://detail.tmall.com/item.htm?id=543479182144"],
-            "MP3-102":["imgs/MP3-102.jpg","https://detail.tmall.com/item.htm?id=541466117370"],
-            "F105":["imgs/F105.jpg","https://detail.tmall.com/item.htm?id=537878118922"],
-            "JD51":["imgs/JD51.jpg","https://detail.tmall.com/item.htm?id=541602246271"],
-            "JD21":["imgs/JD21.jpg","https://detail.tmall.com/item.htm?id=537774697992"],
-            "JD31":["imgs/JD31.jpg","https://detail.tmall.com/item.htm?id=539050492976"],
-            "S30":["imgs/S30.jpg","https://detail.tmall.com/item.htm?id=524105924511"],
-            "HD816-2T":["imgs/HD816-2T.jpg","https://detail.tmall.com/item.htm?id=524578140845"],
-            "A6":["imgs/A6.jpg","https://detail.tmall.com/item.htm?id=541170522252"],
-            "R6611":["imgs/R6611.jpg","https://detail.tmall.com/item.htm?id=38452723666"],
-            "PB726S":["imgs/PB726S.jpg","https://detail.tmall.com/item.htm?id=520246243210"],
-            "U360":["imgs/U360.jpg","https://detail.tmall.com/item.htm?id=533256802617"],
-            "R6620":["imgs/R6620.jpg","https://detail.tmall.com/item.htm?id=540723758695"],
-            "S01":["imgs/S01.jpg","https://detail.tmall.com/item.htm?id=533634338899"],
-            "R5511":["imgs/R5511.jpg","https://detail.tmall.com/item.htm?id=19126738614"],
-            "R6601":["imgs/R6601.jpg","https://detail.tmall.com/item.htm?id=520962282423"]
+        var cps = {//图片地址，商品地址，价格，商品标题
+            "Z6":["imgs/Z6.jpg","https://detail.tmall.com/item.htm?id=534957425671","699","月光宝盒Z6发烧DSD原生硬解mp3播放器双核无损HIFI母带级随身听"],
+            "Z2":["imgs/Z2.jpg","https://detail.tmall.com/item.htm?id=544589891298","499","月光宝盒Z2发烧DSD无损录音mp3播放器HIFI母带级插卡便携随身听"],
+            "H1":["imgs/H1.jpg","https://detail.tmall.com/item.htm?id=544128261308","299","月光宝盒 H1四核圈铁耳机入耳式线控带麦HIFI重低音手机MP3通用"],
+            "H651":["imgs/H651.jpg","https://detail.tmall.com/item.htm?id=544905873130","299","Aigo/爱国者 EROS H651 HIFI耳机头戴式发烧重低音乐游戏电脑耳机"],
+            "F830":["imgs/F830.jpg","https://detail.tmall.com/item.htm?id=544307390309","199","月光宝盒F830运动跑步学习MP3播放器16G无损录音有屏迷你随身听"],
+            "F109":["imgs/F109.jpg","https://detail.tmall.com/item.htm?id=537984691072","169","月光宝盒F109外放蓝牙MP3播放器有屏插卡HIFI无损录音MP4迷你学生"],
+            "F107":["imgs/F107.jpg","https://detail.tmall.com/item.htm?id=543479182144","129","月光宝盒F107外放HIFI无损MP3播放器录音MP4学习插卡迷你随身听"],
+            "MP3-102":["imgs/MP3-102.jpg","https://detail.tmall.com/item.htm?id=541466117370","169","爱国者MP3播放器蓝牙运动跑步HIFI无损有屏插卡学生迷你MP4随身听"],
+            "F105":["imgs/F105.jpg","https://detail.tmall.com/item.htm?id=537878118922","119","月光宝盒F105 MP3播放器迷你有屏插卡跑步运动无损HiF学生学习MP4"],
+            "JD51":["imgs/JD51.jpg","https://detail.tmall.com/item.htm?id=541602246271","69","月光宝盒MP3播放器JD51有屏插卡U盘直插英语学生迷你运动随身听"],
+            "JD21":["imgs/JD21.jpg","https://detail.tmall.com/item.htm?id=537774697992","88","月光宝盒mp3播放器JD21运动跑步学生英语迷你可爱有屏插卡 随身听"],
+            "JD31":["imgs/JD31.jpg","https://detail.tmall.com/item.htm?id=539050492976","129","月光宝盒JD31运动mp3迷你无损播放器英语学生录音直插8G随身听"],
+            "S30":["imgs/S30.jpg","https://detail.tmall.com/item.htm?id=524105924511","168","Aigo/爱国者 s30无线运动跑步蓝牙耳机4.1双耳塞入耳式 迷你4.0"],
+            "HD816-2T":["imgs/HD816-2T.jpg","https://detail.tmall.com/item.htm?id=524578140845","919","Aigo/爱国者无线移动硬盘HD816-2T 无线wifi存储 USB3.0超薄抗震"],
+            "A6":["imgs/A6.jpg","https://detail.tmall.com/item.htm?id=541170522252","19.9","aigo A6+充电器5V1A插头usb快速手机快充安卓苹果通用电源适配器"],
+            "R6611":["imgs/R6611.jpg","https://detail.tmall.com/item.htm?id=38452723666","199","爱国者R6611录音笔专业高清降噪远距迷你会议学生商务MP3播放器8G"],
+            "PB726S-1T":["imgs/PB726S-1T.jpg","https://detail.tmall.com/item.htm?id=520246243210","799","Aigo/爱国者PB726S无线wifi移动硬盘1t 高速USB3.0无线路由拷电影"],
+            "U360":["imgs/U360.jpg","https://detail.tmall.com/item.htm?id=533256802617","179","爱国者32/64G苹果手机u盘iPhone6s/plus外接内存扩容电脑两用优盘"],
+            "R6620":["imgs/R6620.jpg","https://detail.tmall.com/item.htm?id=540723758695","399","Aigo/爱国者R6620录音笔专业高清远距声控降噪采访商务学习播放器"],
+            "S01":["imgs/S01.jpg","https://detail.tmall.com/item.htm?id=533634338899","799","aigo/爱国者S01移动固态硬盘USB3.0 SSD高速移动固态硬盘240G"],
+            "R5511":["imgs/R5511.jpg","https://detail.tmall.com/item.htm?id=19126738614","299","Aigo/爱国者R5511录音笔专业 高清远距降噪迷你学生MP3播放器"],
+            "R6601":["imgs/R6601.jpg","https://detail.tmall.com/item.htm?id=520962282423","359","aigo爱国者R6601录音笔专业高清降噪远距声控迷你加密MP3播放器"]
         };
         //获取URL参数值
         var cp = getQueryString('cp');
@@ -92,7 +117,9 @@
             if(explorer.match(/MicroMessenger/i)){//如果是微信
                 document.getElementById("ts").style.display = 'block';
                 document.getElementById("cpimg").style.display = 'block';
-                document.getElementById("cpimg1").innerHTML='<img src="'+cps[cp][0]+'">';
+                document.getElementById("cpimg1-img").innerHTML='<img src="'+cps[cp][0]+'">';
+                document.getElementById("cpimg1-content").innerHTML= cps[cp][3];
+                document.getElementById("cpimg1-price").innerHTML='<span>¥</span>'+cps[cp][2];
             }else{//如果不是微信，直接跳转
                 window.location = cps[cp][1];
             }
@@ -103,7 +130,11 @@
 <body onload="weixin()">
     <div id="ts" style="display: none"></div>
     <div id="cpimg" style="display: none">
-        <div id="cpimg1"></div>
+        <div id="cpimg1">
+            <div id="cpimg1-img"></div>
+            <div id="cpimg1-content"></div>
+            <div id="cpimg1-price"></div>
+        </div>
     </div>
     <div style="display: none"><!--统计代码-->
         <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_5674038'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s9.cnzz.com/stat.php%3Fid%3D5674038' type='text/javascript'%3E%3C/script%3E"));</script>
