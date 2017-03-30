@@ -113,6 +113,7 @@
 
         function weixin(){
             //判断是不是微信
+            document.title = cps[cp][3];
             var explorer =navigator.userAgent;
             if(explorer.match(/MicroMessenger/i)){//如果是微信
                 document.getElementById("ts").style.display = 'block';
